@@ -19,6 +19,24 @@ router.post("/register", async(req, res) => {
             });
         }
 
+
+        //we have only checked if email exists now we check if it is in a correct format.
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if(!emailRegex.test(email)){
+            return res.status(400).json({
+                message: "Please enter a valid email"
+            });
+        }
+
+
+        //similarly for password
+        if(password.length<6){
+            return res.status(400).json({
+                message: "Password must be of minimum 6 characters long"
+            });
+        }
+
+
         const existingUser = await User.findOne({email});
 
         if (existingUser) {
