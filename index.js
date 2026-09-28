@@ -6,7 +6,7 @@ const postRoutes = require("./postroutes/routes.js");
 const authroutes = require("./authroutes/routes.js");
 
 const app = express();
-const port = 5001;
+const port = process.env.PORT || 5001;
 
 connectDB();
 
@@ -28,5 +28,5 @@ app.use((req, res) => {
 
 
 app.listen(port, ()=> {
-     console.log("Server started on 5001");
+     console.log(`Server started on 5001 ${PORT}`);
 })
