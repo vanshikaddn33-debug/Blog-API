@@ -28,5 +28,5 @@ app.use((req, res) => {
 
 
 app.listen(port, ()=> {
-     console.log(`Server started on 5001 ${port}`);
+     console.log(`Server started on ${port}`);
 })
